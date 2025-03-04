@@ -1,0 +1,81 @@
+import re
+import math
+
+
+while True:
+    user_input = input('you: ')
+    Bot = "ChatBot: "
+    user_input.replace("sir","")
+    user_input.replace("Sir","")
+    user_input.replace("ma","")
+    user_input.replace("Ma","")
+
+    if user_input.lower() == "quit":
+        print(user_input+"Exiting the program.")
+        break  # Exit the loop if the user types "quit"
+    else:
+        topic = "this"
+        if topic == "loop" or topic == "loops":
+           print( f"I'm not sure, but I know a little bit about {topic}.")
+
+        
+
+
+    if user_input.lower() == "hello":
+        print(Bot+"Hi")
+    elif user_input.lower() == "hi":
+        print(Bot+"Hi")
+    elif "i have a question" in user_input.lower():
+         print(Bot+"What is it?")
+    elif   user_input.lower() == "good" or "ing" in user_input.lower() :
+        print(Bot+ "Thank you",user_input)
+    elif "what is your name" in user_input.lower() :
+        print(Bot+"My name is ChatBot")
+    elif  "how are you" in user_input.lower() or "how's it going" in user_input.lower():
+        print(Bot+"I am fine, thank you")
+    elif "what is a loop"in user_input.lower() and "in python" in user_input.lower():
+         print(Bot+"In Python, a loop is a programming construct that ")
+         print("        allows you to repeatedly execute a block of code. Instead") 
+         print("        of writing the same code multiple times, you can put it ")
+         print("        inside a loop, and the loop will run it as many times as you")
+         print("        need, or until a certain condition is met.")
+    elif "do you like" in user_input.lower():
+         print(Bot+"yes, i do.",
+               "         my favourite")
+    elif user_input.lower() in ["good","good morning","good evening"]:
+        print(Bot+"Same to you")
+    elif "how" and "quit this" in user_input.lower():
+        print(Bot+"type quit")
+    elif "do you know maths" in user_input.lower() or "do you know mathematics" in user_input.lower():
+        print(Bot+"Yes, I know some basic mathematics.")
+        print("         what question do you have")
+    elif "square root of" in user_input.lower():
+        try:
+            number_str = user_input.lower().split("square root of")[-1].strip()  # Extract number
+            number = float(number_str)
+            if number >= 0:
+                result = math.sqrt(number)
+                print(Bot + str(result))
+            else:
+                print(Bot + "Cannot calculate square root of a negative number.")
+        except ValueError:
+            print(Bot + "Invalid input. Please enter a valid number.")
+
+    elif "square of" in user_input.lower():
+        try:
+            number_str = user_input.lower().split("square of")[-1].strip()  # Extract number
+            number = float(number_str)
+            result = number**2  # Calculate square
+            print(Bot + str(result))
+        except ValueError:
+            print(Bot + "Invalid input. Please enter a valid number.")
+    elif re.search(r'[+\-*/]', user_input):
+        try:
+            result = eval(user_input)
+            print(Bot + str(result))
+        except (SyntaxError, NameError, TypeError, ZeroDivisionError):
+            print(Bot + "I'm not sure what that means, could you rephrase it?")
+    else :
+        print(Bot +" ??") or print("         I don't get")
+
+  
